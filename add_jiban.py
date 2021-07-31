@@ -1,5 +1,6 @@
 import pyautogui
 import time
+import start_gzlj as sg
 
 
 # click 1中间
@@ -15,14 +16,14 @@ def click_img(icon_path, need_click=True, need_sleep=False, x_move=0, y_move=0, 
             pyautogui.click()
 
         if sec_icon is not None:
-            sec_icon_location = pyautogui.locateCenterOnScreen(sec_icon)
+            sec_icon_location = sg.look_for_img(sec_icon)
             if sec_icon_location is not None:
                 pyautogui.moveTo(sec_icon_location)
                 pyautogui.click()
-        icon_location = pyautogui.locateCenterOnScreen(icon_path)
+        icon_location = sg.look_for_img(icon_path)
         if icon_location is None:
             if other_icon is not None:
-                icon_location = pyautogui.locateCenterOnScreen(other_icon)
+                icon_location = sg.look_for_img(other_icon)
 
         if icon_location is not None:
             pyautogui.moveTo(x=icon_location.x + x_move, y=icon_location.y + y_move)

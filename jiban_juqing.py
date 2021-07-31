@@ -1,5 +1,6 @@
 import pyautogui
 import time
+import start_gzlj as sg
 
 
 def jue_se_ju_qing():
@@ -19,18 +20,18 @@ def jue_se_ju_qing():
 
 def find_img(icon_1, icon_2, icon_3=None, icon_4=None):
     while True:
-        i1 = pyautogui.locateCenterOnScreen(icon_1)
+        i1 = sg.look_for_img(icon_1)
         if i1:
             return 1
-        i2 = pyautogui.locateCenterOnScreen(icon_2)
+        i2 = sg.look_for_img(icon_2)
         if i2:
             return 2
         if icon_3 is not None:
-            i3 = pyautogui.locateCenterOnScreen(icon_3)
+            i3 = sg.look_for_img(icon_3)
             if i3:
                 return 3
         if icon_4 is not None:
-            i4 = pyautogui.locateCenterOnScreen(icon_4)
+            i4 = sg.look_for_img(icon_4)
             if i4:
                 return 4
 
@@ -46,7 +47,7 @@ def ju_qing_zidong():
 
 def check_icon(icon):
     if icon is not None:
-        icon_location = pyautogui.locateCenterOnScreen(icon)
+        icon_location = sg.look_for_img(icon)
         if icon_location is not None:
             pyautogui.moveTo(icon_location)
             pyautogui.click()
@@ -91,7 +92,7 @@ def click_img(icon_path, icon_sec_path=None,need_click=True, need_sleep=False, x
                     print(i)
                     time.sleep(0.2)
                     pyautogui.click()
-        icon_location = pyautogui.locateCenterOnScreen(icon_path)
+        icon_location = sg.look_for_img(icon_path)
 
         if icon_location is not None:
             pyautogui.moveTo(x=icon_location.x + x_move, y=icon_location.y + y_move)
@@ -102,7 +103,7 @@ def click_img(icon_path, icon_sec_path=None,need_click=True, need_sleep=False, x
                 result = False
         else:
             if icon_sec_path is not None:
-                icon_location = pyautogui.locateCenterOnScreen(icon_sec_path)
+                icon_location = sg.look_for_img(icon_sec_path)
                 if icon_location is not None:
                     pyautogui.moveTo(x=icon_location.x + x_move, y=icon_location.y + y_move)
                     pyautogui.click()
@@ -114,7 +115,7 @@ def click_img(icon_path, icon_sec_path=None,need_click=True, need_sleep=False, x
                 print("no get icon location, " + icon_path)
                 time.sleep(0.2)
         if break_icon is not None:
-            break_icon_location = pyautogui.locateCenterOnScreen(break_icon)
+            break_icon_location = sg.look_for_img(break_icon)
             if break_icon_location is not None:
                 print("break icon find , break")
                 pyautogui.moveTo(x=break_icon_location.x, y=break_icon_location.y)
@@ -136,14 +137,14 @@ def click_img_2_choose_one(icon_path, need_click=True, need_sleep=False, x_move=
             pyautogui.click()
 
         if sec_icon is not None:
-            sec_icon_location = pyautogui.locateCenterOnScreen(sec_icon)
+            sec_icon_location = sg.look_for_img(sec_icon)
             if sec_icon_location is not None:
                 pyautogui.moveTo(sec_icon_location)
                 pyautogui.click()
-        icon_location = pyautogui.locateCenterOnScreen(icon_path)
+        icon_location = sg.look_for_img(icon_path)
         if icon_location is None:
             if other_icon is not None:
-                icon_location = pyautogui.locateCenterOnScreen(other_icon)
+                icon_location = sg.look_for_img(other_icon)
 
         if icon_location is not None:
             pyautogui.moveTo(x=icon_location.x + x_move, y=icon_location.y + y_move)
