@@ -2,8 +2,6 @@ import pyautogui
 import time
 
 
-
-
 # click 1中间
 def click_img(icon_path, need_click=True, need_sleep=False, x_move=0, y_move=0, sec_icon=None, max_times=-1, other_icon=None):
     result = True
@@ -48,5 +46,5 @@ def add_jiban():
     click_img(icon_path="icon\\jiban_icon_can_up.png", need_click=False, x_move=1200, y_move=-100)
 
 
-for i in range(1,999):
+for i in range(1, 999):
     add_jiban()

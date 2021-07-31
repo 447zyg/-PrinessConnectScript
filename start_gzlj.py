@@ -52,7 +52,7 @@ def bug_mana_and_zan():
     click_img("icon\\icon_ok.png",need_click=False)
 
 
-# 刚启动初始化
+# 刚启动初始化 废弃
 def init_click():
     click_img("icon\\icon.png", need_click=False)
     time.sleep(10)
@@ -130,6 +130,7 @@ def go_home_get():
     click_img("icon\\zhuye_liwu_cancel.png",need_click=False)
 
 
+# 自动打jjc
 def play_jjc():
     click_img("icon\\icon_maoxian.png", need_click=False)
     click_img("icon\\jjc.png", need_click=False, other_icon="icon\\jjc_bak.png")
@@ -142,6 +143,7 @@ def play_jjc():
     time.sleep(3)
 
 
+# 自动打pjjc
 def play_pjjc():
     time.sleep(3)
     click_img("icon\\icon_maoxian.png", need_click=False)
@@ -190,8 +192,8 @@ def sao_dang_huo_dong(huodong_icon="icon\\icon_huodong.png"):
     time.sleep(2)
 
 
-# 角色 刷前10个喜欢的角色碎片
-def juese_qianghua():
+# 角色 刷前x个喜欢的角色碎片
+def juese_qianghua(num):
     time.sleep(3)
     click_img("icon\\jiaose.png", need_click=False)
     click_img("icon\\juese_shaixuan.png", need_click=False)
@@ -204,7 +206,8 @@ def juese_qianghua():
 
     click_img("icon\\juese_cainengkaihua.png", need_click=False)
 
-    for i in range(1, 11):
+    # 这里修改几个扫荡几个角色的碎片 1-11 就是10个。以此类推
+    for i in range(1, num):
         click_img("icon\\juese_qudefangfa.png", need_click=False)
         click_img("icon\\juese_guanbi.png", need_click=False, y_move=-100)
         click_img("icon\\juese_saodang_jiahao.png", need_click=False)
@@ -291,7 +294,7 @@ def click_img(icon_path, need_click=True, need_sleep=False, x_move=0, y_move=0, 
             time.sleep(0.2)
 
 
-#回到主页
+# 回到主页
 def go_home():
     time.sleep(3)
     click_img("icon\\zhuye.png", need_click=False)
@@ -340,23 +343,4 @@ def buy_ti_li(num):
         click_img("icon\\icon_buy_tili_white_ok.png", need_click=False)
 
 
-# open_mu_mu()
-# init_click()
-lingqu_meirirenwu_jiangli(False)
-gonghui_xiaowu()
-# sao_dang_huo_dong("icon\\huodong_fuke.png")
-# sao_dang_huo_dong()
-bug_mana_and_zan()
-mana_tan_suo()
-go_home()
-di_xia_cheng()
-go_home_get()
-play_jjc()
-free_ten_get()
-play_pjjc()
-juese_qianghua()
-# luna_ta()
-lingqu_meirirenwu_jiangli()
-# buy_ti_li(4)
-# xinsui_saodang()
 

@@ -34,13 +34,8 @@ def find_img(icon_1, icon_2, icon_3=None, icon_4=None):
             if i4:
                 return 4
 
+
 def ju_qing_zidong():
-    # click_img("icon\\juqing_wupeiyin.png", need_click=False,
-    #           other_icon="icon\\juqing_wupeiyin_bak.png",
-    #           other_icon_1="icon\\juqing_wupeiyin_bak3.png",
-    #           other_icon_3="icon\\juqing_wupeiyin_bak4.png",
-    #           other_icon_2="icon\\juqing_wupeiyin_bak2.png", click_one_return=True)
-    # click_img(icon_path="icon\\juqing_ok.png", need_click=False)
     return click_img(icon_path="icon\\juqing_close.png", icon_sec_path="icon\\juqing_close_bak.png", need_click=False,
               other_icon="icon\\juqing_menu.png", other_icon_1="icon\\juqing_skip.png",
               other_icon_2="icon\\juqing_skip_confirm_btn.png",
