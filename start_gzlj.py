@@ -33,7 +33,7 @@ def free_ten_get():
     time.sleep(3)
     click_img("icon\\icon_zhuandan.png",need_click=False)
     click_img("icon\\putong.png",need_click=False, other_icon="icon\\putong_small.png")
-    click_img("icon\\icon_mianfeishilian.png",need_click=False)
+    click_img("icon\\icon_mianfeishilian.png",need_click=False, other_icon="icon\\icon_mianfeishilian_bak.png")
     click_img("icon\\free_get_ok.png")
     click_img("icon\\icon_ok_white.png")
 
@@ -42,10 +42,10 @@ def free_ten_get():
 def bug_mana_and_zan():
     time.sleep(3)
     click_img("icon\\zhuye.png",need_click=False)
-    click_img("icon\\zhuye_zhujiaodengji.png", False, True, x_move=185, y_move=105)
-    click_img("icon\\buy_mana.png")
+    click_img("icon\\shouye_youshangjiao_icon_1.png", False, True, x_move=-820, y_move=25)
+    click_img("icon\\buy_mana.png",need_click=False)
     click_img("icon\\buy_mana_ok.png",need_click=False)
-    click_img("icon\\icon_cancel.png")
+    click_img("icon\\icon_cancel.png",need_click=False)
     click_img("icon\\icon_zhandui.png",need_click=False)
     click_img("icon\\icon_chengyuan.png",need_click=False, sec_icon="icon\\tuandui_dianzan.png")
     click_img("icon\\icon_zan.png",need_click=False)
@@ -134,7 +134,7 @@ def go_home_get():
 def play_jjc():
     click_img("icon\\icon_maoxian.png", need_click=False)
     click_img("icon\\jjc.png", need_click=False, other_icon="icon\\jjc_bak.png")
-    click_img("icon\\jjc_select.png", need_click=False, y_move=50, sec_icon="icon\\jjc_fangshou_dialog_quxiao.png")
+    click_img("icon\\jjc_select.png", need_click=False, x_move=200, y_move=50, sec_icon="icon\\jjc_fangshou_dialog_quxiao.png")
     click_img("icon\\jjc_zhandoukaishi.png", need_click=False)
     time.sleep(20)
     click_img("icon\\jjc_next.png", need_click=False)
@@ -148,7 +148,7 @@ def play_pjjc():
     time.sleep(3)
     click_img("icon\\icon_maoxian.png", need_click=False)
     click_img(icon_path="icon\\pjjc.png", need_click=False)
-    click_img("icon\\pjjc_top_text.png", need_click=False, y_move=50, sec_icon="icon\\pjjc_fangshou_dialog_quxiao.png")
+    click_img("icon\\pjjc_top_text.png", need_click=False, x_move=200, y_move=50, sec_icon="icon\\pjjc_fangshou_dialog_quxiao.png")
     click_img("icon\\pjjc_duiwu3.png", need_click=False)
     click_img("icon\\jjc_zhandoukaishi.png", need_click=False)
     click_img("icon\\pjjc_next.png", need_click=False)
@@ -208,6 +208,16 @@ def juese_qianghua(num):
 
     # 这里修改几个扫荡几个角色的碎片 1-11 就是10个。以此类推
     for i in range(1, num):
+        # is_six_star
+        a = find_img("icon\\is_six_star.png", "icon\\qudefangfa_grap.png", "icon\\juese_qudefangfa.png")
+        if a == 2:
+            continue
+        if a == 1:
+            click_img("icon\\is_six_star.png", need_click=False, x_move=-200,y_move=-260)
+            b = find_img("icon\\qudefangfa_grap.png", "icon\\juese_qudefangfa.png")
+            if b == 0:
+                continue
+
         click_img("icon\\juese_qudefangfa.png", need_click=False)
         click_img("icon\\juese_guanbi.png", need_click=False, y_move=-100)
         click_img("icon\\juese_saodang_jiahao.png", need_click=False)
@@ -224,7 +234,7 @@ def juese_qianghua(num):
         click_img("icon\\juese_saodang_quxiao.png", need_click=False,
                   sec_icon="icon\\xianshishangdian_cancel.png")
         click_img("icon\\juese_guanbi.png", need_click=False)
-        click_img("icon\\juese_qudefangfa.png", need_click=False, x_move=450, y_move=-225)
+        click_img("icon\\juese_qudefangfa.png", need_click=False, x_move=450, y_move=-225, other_icon="icon\\qudefangfa_grap.png")
         time.sleep(1)
 
 
@@ -234,7 +244,7 @@ def lingqu_meirirenwu_jiangli(no_in_home = True):
     if no_in_home:
         click_img("icon\\zhuye.png",need_click=False)
     time.sleep(3)
-    click_img("icon\\zhuye_renwu.png", need_click=False, other_icon="icon\\zhuye_renwu_bak.png")
+    click_img("icon\\zhuye_liwu_bak_3.png", need_click=False, other_icon="icon\\zhuye_renwu_bak.png")
     click_img("icon\\zhuye_renwu_quanbulingqu.png", need_click=False)
     click_img("icon\\zhuye_renwu_lingquguanbi.png", need_click=False)
 
@@ -345,5 +355,22 @@ def buy_ti_li(num):
 
 # 新增 模糊度
 def look_for_img(path):
-    return pyautogui.locateCenterOnScreen(path, confidence=0.8)
+    return pyautogui.locateCenterOnScreen(path)
 
+
+def find_img(icon_1, icon_2, icon_3=None, icon_4=None):
+    while True:
+        i1 = look_for_img(icon_1)
+        if i1:
+            return 1
+        i2 = look_for_img(icon_2)
+        if i2:
+            return 2
+        if icon_3 is not None:
+            i3 = look_for_img(icon_3)
+            if i3:
+                return 3
+        if icon_4 is not None:
+            i4 = look_for_img(icon_4)
+            if i4:
+                return 4

@@ -1,7 +1,5 @@
 import start_gzlj as sg
 
-# open_mu_mu()
-# init_click()
 # 领取每日任务奖励
 sg.lingqu_meirirenwu_jiangli(False)
 
