@@ -32,7 +32,8 @@ def gonghui_xiaowu():
 def free_ten_get():
     time.sleep(3)
     click_img("icon\\icon_zhuandan.png",need_click=False)
-    click_img("icon\\putong.png",need_click=False, other_icon="icon\\putong_small.png")
+    click_img("icon\\putong.png",need_click=False, other_icon="icon\\putong_small.png",
+              third_icon="icon\\putong_bak_1.png")
     click_img("icon\\icon_mianfeishilian.png",need_click=False, other_icon="icon\\icon_mianfeishilian_bak.png")
     click_img("icon\\free_get_ok.png")
     click_img("icon\\icon_ok_white.png")
@@ -272,7 +273,8 @@ def open_mu_mu():
 
 
 # click 1中间
-def click_img(icon_path, need_click=True, need_sleep=False, x_move=0, y_move=0, sec_icon=None, max_times=-1, other_icon=None):
+def click_img(icon_path, need_click=True, need_sleep=False, x_move=0, y_move=0, sec_icon=None, max_times=-1,
+              other_icon=None, third_icon=None):
     result = True
     num = 0
     while result:
@@ -292,6 +294,9 @@ def click_img(icon_path, need_click=True, need_sleep=False, x_move=0, y_move=0, 
         if icon_location is None:
             if other_icon is not None:
                 icon_location = look_for_img(other_icon)
+                if icon_location is None:
+                    if third_icon is not None:
+                        icon_location = look_for_img(third_icon)
 
         if icon_location is not None:
             pyautogui.moveTo(x=icon_location.x + x_move, y=icon_location.y + y_move)
