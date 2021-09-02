@@ -48,6 +48,7 @@ def bug_mana_and_zan():
     click_img("icon\\buy_mana_ok.png",need_click=False)
     click_img("icon\\icon_cancel.png",need_click=False)
     click_img("icon\\icon_zhandui.png",need_click=False)
+    time.sleep(3)
     click_img("icon\\icon_chengyuan.png",need_click=False, sec_icon="icon\\tuandui_dianzan.png")
     click_img("icon\\icon_zan.png",need_click=False)
     click_img("icon\\icon_ok.png",need_click=False)
@@ -140,8 +141,8 @@ def play_jjc():
     time.sleep(20)
     click_img("icon\\jjc_next.png", need_click=False)
     time.sleep(3)
-    click_img("icon\\zhuye.png", need_click=False)
-    time.sleep(3)
+    # click_img("icon\\zhuye.png", need_click=False)
+    # time.sleep(3)
 
 
 # 自动打pjjc
@@ -152,7 +153,7 @@ def play_pjjc():
     click_img("icon\\pjjc_top_text.png", need_click=False, x_move=200, y_move=50, sec_icon="icon\\pjjc_fangshou_dialog_quxiao.png")
     click_img("icon\\pjjc_duiwu3.png", need_click=False)
     click_img("icon\\jjc_zhandoukaishi.png", need_click=False)
-    click_img("icon\\pjjc_next.png", need_click=False)
+    click_img("icon\\pjjc_next.png", need_click=False, other_icon="icon\\pjjc_next_small.png")
 
 
 # 扫荡活动
@@ -168,7 +169,7 @@ def sao_dang_huo_dong(huodong_icon="icon\\icon_huodong.png"):
     time.sleep(20)
     click_img("icon\\huodong_xiayibu.png", need_click=False)
     click_img("icon\\huodong_xiayibu_2.png", need_click=False)
-    time.sleep(3)
+    time.sleep(5)
     click_img("icon\\huodong_hard.png", need_click=False,x_move=-250,y_move=200)
 
     for i in range(1, 6):
@@ -182,6 +183,7 @@ def sao_dang_huo_dong(huodong_icon="icon\\icon_huodong.png"):
         click_img("icon\\juese_saodang_ok.png", need_click=False)
         click_img("icon\\juese_saodang_3ci_ok_white.png", need_click=False)
 
+        time.sleep(1)
         click_img("icon\\huodong_jiangli.png", need_click=False, x_move=-85, y_move=-150,
                   sec_icon="icon\\xianshishangdian_cancel.png")
         time.sleep(1)
@@ -233,7 +235,7 @@ def juese_qianghua(num):
         click_img("icon\\juese_saodang_ok.png", need_click=False)
         click_img("icon\\juese_saodang_3ci_ok_white.png", need_click=False)
         click_img("icon\\juese_saodang_quxiao.png", need_click=False,
-                  sec_icon="icon\\xianshishangdian_cancel.png")
+                  sec_icon="icon\\xianshi_shangdian_quxiao.png")
         click_img("icon\\juese_guanbi.png", need_click=False)
         click_img("icon\\juese_qudefangfa.png", need_click=False, x_move=450, y_move=-225, other_icon="icon\\qudefangfa_grap.png")
         time.sleep(1)

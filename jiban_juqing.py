@@ -159,3 +159,4 @@ def click_img_2_choose_one(icon_path, need_click=True, need_sleep=False, x_move=
 
 while True:
     jue_se_ju_qing()
+    # ju_qing_zidong()
