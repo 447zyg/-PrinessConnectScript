@@ -3,6 +3,8 @@ import start_gzlj as sg
 # 领取每日任务奖励
 sg.lingqu_meirirenwu_jiangli(False)
 
+# 买体力 4是买3次 以此类推
+# sg.buy_ti_li(4)
 # 领取工会小屋
 sg.gonghui_xiaowu()
 
@@ -25,7 +27,7 @@ sg.mana_tan_suo()
 sg.go_home()
 
 # 打地下城
-# sg.di_xia_cheng()
+sg.di_xia_cheng_new()
 
 # 回首页领取东西
 sg.go_home_get()
@@ -42,15 +44,17 @@ sg.play_pjjc()
 # 扫荡前N个角色碎片 11是扫荡前10个 以此类推
 sg.juese_qianghua(11)
 
-# 扫荡露娜塔 需要自己先过一次
-# sg.luna_ta()
-
-# 领取每日任务奖励
-sg.lingqu_meirirenwu_jiangli()
-
-# 买体力 4是买3次 以此类推
-sg.buy_ti_li(4)
 
 # 心碎和宝珠扫荡 需要自己打开
 # sg.xinsui_saodang()
+# 扫荡露娜塔 需要自己先过一次
+sg.luna_ta()
 
+# 领取每日任务奖励
+sg.lingqu_meirirenwu_jiangli()
+sg.xianshishanggdian()
+
+
+
+
+# sg.buy_ti_li(4)

@@ -4,11 +4,11 @@ import start_gzlj as sg
 
 
 def jue_se_ju_qing():
-    result = find_img("icon\\jiban_icon_can_up.png", "icon\\jiban_juqing_icon_over.png")
+    result = find_img("icon\\jiban_icon_can_up.png", "icon\\jiban_icon_normal.png")
     print("find result = ")
     print(result)
     if result == 1:
-        click_img("icon\\jiban_icon.png", need_click=False)
+        click_img("icon\\jiban_icon_can_up.png", need_click=False)
         click_img(icon_path="icon\\jiban_up_btn.png", need_click=False, y_move=-240)
         for i in range(1, 100):
             a = ju_qing_zidong()
@@ -157,6 +157,26 @@ def click_img_2_choose_one(icon_path, need_click=True, need_sleep=False, x_move=
             time.sleep(0.2)
 
 
-while True:
-    jue_se_ju_qing()
+import start_gzlj as gj
+
+
+def xin_lai_du():
+    while True:
+        gj.click_img("icon\\zhuye.png", y_move=-600)
+        gj.click_img("icon\\xinlaidu_select_blue.png", other_icon="icon\\xinlaidu_select_yellow.png")
+
+
+def duihuan_zidong():
+    click_img(icon_path="icon\\switch_again.png", icon_sec_path="icon\\qudeyu_yilan.png", need_click=False,
+              other_icon="icon\\switch_again_again.png", other_icon_1="icon\\switch_ok.png",
+              other_icon_2="icon\\switch_reset.png",
+              other_icon_4="icon\\switch_100.png",
+              other_icon_3="icon\\switch_100.png", need_break=False,
+              break_icon="icon\\switch_100.png")
+
+
+xin_lai_du()
+# while True:
+    # jue_se_ju_qing()
     # ju_qing_zidong()
+    # duihuan_zidong()

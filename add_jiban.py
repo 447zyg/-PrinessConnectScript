@@ -37,14 +37,25 @@ def click_img(icon_path, need_click=True, need_sleep=False, x_move=0, y_move=0, 
 
 
 def add_jiban():
-    click_img(icon_path="icon\\jiban_icon_can_up.png", need_click=False)
+
+    click_img(icon_path="icon\\jiban_icon_can_up.png", other_icon="icon\\jiban_icon_normal.png", need_click=False)
     click_img(icon_path="icon\\jiban_up_btn.png", need_click=False)
+
+    find = sg.find_img("icon\\jiban_max_btn.png", "icon\\max_unable_icon.png")
+    if find == 2:
+        click_img(icon_path="icon\\jiban_back.png", need_click=False)
+        click_img(icon_path="icon\\jiban_close_2_btn.png", need_click=False)
+        click_img(icon_path="icon\\jiban_icon_can_up.png", other_icon="icon\\jiban_icon_normal.png", need_click=False, x_move=1200, y_move=-100)
+        time.sleep(1)
+        return
+
     click_img(icon_path="icon\\jiban_max_btn.png", need_click=False)
     click_img(icon_path="icon\\jiben_send_btn.png", need_click=False)
     click_img(icon_path="icon\\jiban_close_1_btn.png", need_click=False, other_icon="icon\\jiban_close_1_btn_bak.png")
     time.sleep(1)
     click_img(icon_path="icon\\jiban_close_2_btn.png", need_click=False, other_icon="icon\\jiban_close_1_btn_bak.png")
-    click_img(icon_path="icon\\jiban_icon_can_up.png", need_click=False, x_move=1200, y_move=-100)
+    click_img(icon_path="icon\\jiban_icon_can_up.png", other_icon="icon\\jiban_icon_normal.png", need_click=False, x_move=1200, y_move=-100)
+    time.sleep(1)
 
 
 for i in range(1, 999):
